@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         /* CUSTOM FONTS SECTION */
+        @font-face {
+            font-family: PoppinBold;
+            src: url(./font/Poppins-Bold.ttf);
+        }
+
+        @font-face {
+            font-family: PoppinSemiBold;
+            src: url(./font/Poppins-SemiBold.ttf);
+        }
+
+        @font-face {
+            font-family: Poppin;
+            src: url(./font/Poppins-Medium.ttf);
+        }
+        
+        
+    body {
+      background: #FAFAFA;
+      font-family: Poppin;
+      padding: 100px;
+    }
+      .sign-up-wrapper {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        margin: 60px 0;
+     
+      }
+      
+      .sign-up-container {
+        max-width: 600px;
+/*        border: 1px solid grey;*/
+        background: white;
+        padding: 60px;
+        margin: 50px auto;
+        box-shadow: -2px 5px 4px lightgray;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .sign-up-field {
+        margin: 10px 15px;
+        position: relative;
+        display: flex;
+        width: 280px;
+        flex-direction: column;
+      
+            }
+      
+      .sign-up-header {
+        font-family: PoppinBold;
+        font-size: 25px;
+        margin: 30px;
+      }
+      
+         .sign-up-field label {
+           position: absolute;
+           pointer-events: none;
+           font-size: 18px;
+           top: 12px;
+           left: 12px;
+           color: grey;
+           
+          }
+           .sign-up-field input {
+             width: 250px;
+             padding: 10px;
+             font-size: 18px;
+             font-family: Poppin;
+             border-radius: 10px;
+             border: 1px solid grey;
+             outline: none;
+           }
+           
+           .sign-up-field input:focus ~ label,   .sign-up-field input:valid ~ label {
+             transform: translate(10px, -20px);
+             transition: transform .6s;
+             background: white;
+             padding: 0 6px;
+             font-size: 14px;
+           }
+           
+           .sign-up-field input:hover {
+             border: 1px solid green;
+           }
+           
+           
+      .sign-up-field   .error {
+           display: flex;
+           color: red;
+           font-size: 15px;
+         }
+         
+         .sign-up-field select {
+          width: 270px;
+          padding: 10px;
+          outline: none;
+          border:  1px solid grey;
+          background: white;
+          font-size: 18px;
+          font-family: Poppin;
+          border-radius: 10px;
+         }
+         
+         .sign-up-field .sign-up-privacy {
+           font-size: 11px;
+           display: flex;
+           white-space: nowrap;
+           align-items: center;
+           justify-content: center;
+           text-align: center;
+           width: 264px;
+         }
+       .sign-up-field a {
+          color: blue;
+          text-decoration: none;
+       }
+       
+       .sign-up-field button {
+         width: 265px;
+         font-size: 17px;
+         font-family: PoppinBold;
+         color: white;
+         background: green;
+         border: 1px solid green;
+         padding: 10px;
+         
+       }
+       
+        .sign-up-field button:hover {
+          border-radius: 10px;
+          border-color: black;
+        }
+        
+        .sign-up-field .or {
+          width: 200px;
+          height: 1px;
+          background: grey;
+          align-self: center;
+          margin: 20px;
+          position: relative;
+        }
+        
+          .sign-up-field .or::before {
+            content: 'Or';
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            color: grey;
+            top: -10px;
+            right: 90px;
+            background: white;
+            text-align: center;
+          }
+          
+          .sign-up-field .already {
+            align-self: center;
+          }
+          
+          .sign-up-field img {
+            width: 22px;
+            position: absolute;
+            right: 12px;
+            top: 4px;
+            background: white;
+            padding: 8px;
+            border-left: 1px solid grey;
+            cursor: pointer;
+            }
+            
+            .creating-account-loading {
+            position: relative;
+            display: flex;
+                      }
+            
+            .bgAnim {
+              position: fixed;
+              background: white;
+              width: 100%;
+              height: 100vh;
+              z-index: 1;
+              top: 0;
+              left: 0;
+              margin: 0;
+              opacity: 0.6;
+            }
+            
+             .creating-account-loading  .spinner-creating-account {
+              background: green;
+              width: 100px;
+              height: 100px;
+              z-index: 2;
+              position: absolute;
+              top: px;
+            }
+            
+            .circle {
+              background: transparent;
+              width: 42px;
+              height: 42px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: fixed;
+              z-index: 3;
+              top: 40vh;
+              border-radius: 50%;
+              border: 8px solid lightgray;
+              border-left-color: green;
+              
+            }
+            .circle::before {
+             content: 'Creating your account';
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: absolute;
+              width: 300px;
+              z-index: 3;
+              top: 50px;
+              left: -120px;
+              font-weight: bold;
+          
+            }
+            
+           .bgAnim + div {
+              z-index: 5;
+              animation: circle 0.9s linear infinite;
+            }
+         
+            
+            .bgAnim + div::before {
+              content: '';
+            }
+         
+            
+          @keyframes circle {
+            0% {
+              transform: rotate(0deg);
+            } 50% {
+              transform: rotate(180deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+          
+          .hidden-sign-up-loader {
+            display: none;
+          }
+          
+          .show-sign-up-loader {
+            display: flex;
+          }  
+         
+         .icon {
+           display: none;
+         }
+         
+         .matric-no-wrapper {
+          display: none;
+         }
+        </style>
+    
+    
+</head>
+<body>
+  
+
+ <form>
+
+<div class="sign-up-wrapper">
+
+     <div class="bgAnim hidden-sign-up-loader "></div>
+        <div class="circle hidden-sign-up-loader "></div>
+        <div class="circle hidden-sign-up-loader " style="animation: none;"></div>    
+
+  <div class="sign-up-container">
+    
+    <div class="sign-up-header">Log in</div>
+    
+    <div class="sign-up-field">
+      <input type="text" required class="sign-up-matric-no" name="matric">
+      <label>Matric No</label>
+     <div class="error err-matric"></div>
+    </div>
+
+    <div class="sign-up-field">
+          <input type="password" required class="sign-up-password" name="pass">
+          <label>Enter your password</label>
+          <image src="./image/view.png" alt="icon" class="icon"></image>
+          <div class="error err-password"></div>
+    </div>
+   
+  <div class="sign-up-field">
+    <button>
+      Sign Up
+    </button>
+  </div>
+  
+  <div class="sign-up-field">
+   <div class="or"></div>
+  </div>
+  
+  <div class="sign-up-field">
+      <div class="already">Don't have an account <a href="/sign-up">Sign up?</a></div>
+  </div>
+       
+        
+  </div>
+</div>
+
+</form>
+
+<script>
+  // Reference an element from the body tag to the DOM for validation and request process.......
+   var matric = document.querySelector('.sign-up-matric-no');
+   var password = document.querySelector('.sign-up-password');
+   var error = document.querySelectorAll('.error')
+   var icon = document.querySelector('.icon');
+   var form = document.querySelector('form');
+
+   var formattedMatric = matric.value.toUpperCase();
+ 
+
+
+   // KEEPING THE USER REALTIME UPDATE TO PROVIDE VALID ADDIMISSION NUMBER'
+   var genValidateForMatricNumber = /^(NCS|HCS)(\/EP)?\/(21|22|23|24)\/\d{4}$/;
+   matric.addEventListener('input', () => {
+
+    if(genValidateForMatricNumber.test(matric.value.toUpperCase())) {
+   		error.textContent = '';
+   	}
+
+   	// if(matric.value){
+   	// 	error.textContent = 'Please enter valid matric';
+   	// } else {
+   	// 	error.textContent = '';
+   	// }
+
+    
+
+   })
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+  // Student object properties
+
+
+  // ARRAY OF DIFFERENT COMPONENTS IN HTML
+  var loader = document.querySelectorAll('.hidden-sign-up-loader');
+  loader.forEach(anim => anim.style.display = "block");
+ 
+
+  // WHILE CREATING A USER JSON OBJECT WHICH WILL AS A DATEBASE DOC
+    const studentSchema = {
+     matric_no: matric.value.toUpperCase(),
+     password: password.value
+    }
+
+   // RESET THE ERRORS MESSAGE IF FORM HAS SUBMIT AGAIN
+    error.forEach(err => err.textContent = '');
+
+
+
+    // IF THE USER PROVIDE CORRECT INFORMATION. THEN, THIS STATEMENT WILL SEND POST REQUEST TO THE SERVER-SIDE AND RETURN A RESPONSE.
+     if(genValidateForMatricNumber.test(matric.value.toUpperCase())) {
+      try {
+        const res = await fetch('/login', {
+          method: 'POST', 
+          headers: {
+          'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(studentSchema) 
+      });
+
+      const result = await res.json();
+      
+    
+      if(result.user) {
+        window.location = '/calculator';
+      }
+
+      if(result.incorrect === 'Incorrect password') {
+        error[1].textContent = 'Incorrect password';
+      }
+
+      if(result.incorrect === 'Incorrect matric no') {
+        error[0].textContent = 'Incorrect Email address';
+      }
+
+
+
+
+      } catch(err) {
+
+      } finally {
+        loader.forEach(anim => anim.style.display = "none");
+      }
+     } 
+    // The below statements are only use for testing purpose, it can be change later
+     
+
+
+    // CHECKING FOR THE SPECIFIC INPUT ERROR THAT CAN OCCUR
+
+
+  })
+
+  
+  
+  // Event listener for password show and hidden icons
+  password.addEventListener('input', () => {
+    if(password.value)
+    icon.style.display = 'flex';
+    else 
+    icon.style.display = 'none';
+  })
+  
+  
+  icon.addEventListener('click', () => {
+    if(password.type === 'password') {
+    icon.src = './image/view.png'
+    password.type = 'text';
+    } else {
+    icon.src = './image/hide.png';
+    password.type = 'password';
+    }
+  }) 
+  
+
+</script>
+</body>
+</html>

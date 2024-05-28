@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+	<style>
+		 /* CUSTOM FONTS SECTION */
+        @font-face {
+            font-family: PoppinBold;
+            src: url(./font/Poppins-Bold.ttf);
+        }
+
+        @font-face {
+            font-family: PoppinSemiBold;
+            src: url(./font/Poppins-SemiBold.ttf);
+        }
+
+        @font-face {
+            font-family: Poppin;
+            src: url(./font/Poppins-Medium.ttf);
+        }
+
+        .body-calculator {
+        	font-family: Poppin;
+        	margin: 0;
+        	padding: 0;
+        	background: #FAFAFA;
+        }
+
+        .header {       
+           height: 70px;
+           width: 100%;
+           background: white;
+           border-bottom: 2px solid green;
+           box-shadow: 1px 3px 4px lightgray;
+           margin-bottom: 100px;
+           position: fixed;
+           top: 0;
+           left: 0;
+        }
+
+        input:hover {
+            border: 1px solid green;
+        }
+
+        .copyright-wrapper {       
+           width: 100%;
+           bottom: 0;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: white;
+           margin-top: 100px;
+           left: 0;
+           background: green;
+           border-bottom: 2px solid green;
+           box-shadow: 1px 3px 4px lightgray;
+        }
+        .logo {
+        	font-family: PoppinBold;
+        	font-size: 30px;
+        	padding: 10px 20px;
+        }
+        .first-container {
+        	max-width: 800px;
+
+        	margin-bottom: 100px;
+        	margin-right: auto;
+        	margin-top: 100px;
+        	margin-left: auto;
+
+        	outline: 1px solid grey;
+        	height: 270px;
+        	margin-bottom: 30px;
+        	box-shadow: 2px 5px 7px lightgrey;
+        	display: flex;
+        	flex-direction: column;
+
+        }
+        .second-container {
+        	max-width: 800px;
+        	margin: 0 auto;
+        	outline: 1px solid grey;
+/*        	height: 400px;*/
+        	box-shadow: 2px 5px 7px lightgrey;
+            padding-bottom: 30px;
+        }
+
+           /* First container properties format in the calculator webpage*/
+           .department-title {
+           	outline: 1px solid grey;
+           	text-align: center;
+           	font-size: 22px;
+           	background: green;
+           	color: white;
+           	padding: 10px;
+           }
+
+           .first-container .profile-logo {
+           	width: 40px;
+           	padding: 10px;
+           	border-radius: 50%;
+           	border: 1px solid grey;
+           	margin-right: 10px;
+           }
+
+           .profile-field {
+           	display: flex;
+           	align-items: center;
+           	margin: 10px 20px;
+           }
+           .fullname {
+           	font-size: 23px;
+           	font-weight: bold;
+           }
+
+           .matric-no-field {
+           	display: flex;
+           	align-items: center;
+           	margin: 0 20px;
+           }
+           .age-field {
+           	display: flex;
+           	align-items: center;
+           	margin: 0 20px;
+           }
+           .level-field {
+           	display: flex;
+           	align-items: center;
+           	margin: 0 20px;
+           }
+           .log-field {
+           	display: flex;
+           	align-items: center;
+           	margin: 0 0 0 10px;
+           }
+
+           .logout {
+           	width: 16px;
+           	font-weight: bold;
+           	margin: 10px;
+           }
+
+           .padding-right {
+           	padding-right: 10px;
+           }
+
+           .bold {
+           	font-family: PoppinBold;
+           }
+           .calculator-mode {
+           	outline: 1px solid grey;
+           	background: green;
+           	padding: 10px;
+           	display: flex;
+           	align-items: center;
+           }
+
+           .mode-title {
+           	font-size: 22px;
+           	color: white;
+           	text-transform: uppercase;
+           	margin-right: 10px;
+           }
+
+           .select-calculator {
+           	width: 350px;
+           	font-size: 18px;
+           	font-family: Poppin;
+           	background: white;
+           	outline: none;
+           	margin: 10px;
+           	padding: 0 20px;
+           }
+
+           /* AREA OF TRIANGLE STYLE SECTION*/
+           .area-of-triangle-conatiner {
+           	max-width: 600px;
+           	margin: 50px auto;
+            outline: none;
+            box-shadow: 1px 2px 4px #F2F2F2;
+           	background: transparent;
+           	display: flex;
+           	flex-direction: column;
+           	justify-content: center;
+           	align-items: center;
+           }
+           .column-one {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             padding: 10px;
+             margin: 10px;
+           }
+           .column-two {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             padding: 10px;
+             margin: 10px;
+           }
+           .column-three {
+           	 display: flex;
+             justify-content: center;
+             align-items: center;
+             margin: 10px;
+           } 
+
+            labeL {
+            	font-family: Poppin;
+            	font-size: 20px;
+            	color: black;
+            	margin-right: 5px;
+            	margin-left: 15px;
+            }
+           .sideValue {
+           	width: 50px;
+           	font-family: Poppin;
+           	padding: 0 10px;
+           	font-size: 20px;
+           	outline: none;
+           	border: 1px solid black;
+           }
+
+           .area {
+           	outline: none;
+           	border: 1px solid black;
+            padding: 0 10px;
+           	font-size: 20px;
+           	width: 200px;
+           	font-family: Poppin;
+           }
+           .loading {
+           	width: 12px;
+            display: none;
+           	height: 12px;
+           	border: 5px solid lightgray;
+           	border-radius: 50%;
+            border-top-color: green;
+            margin-left: 5px;
+            animation: spinner 0.4s linear infinite;
+           }
+
+           @keyframes spinner {
+           	0% {
+           		transform: rotate(0deg);
+           	} 50% {
+           		transform: rotate(180deg);
+           	} 100% {
+           		transform: rotate(360deg);
+           	}
+           }
+
+           button:hover {
+           cursor: pointer;
+           background: darkgreen;
+           color: white;
+           }
+
+           .column-three a:hover {
+           cursor: pointer;
+           background: darkgreen;
+           color: white;
+           }
+
+           .button-format {
+            width: 100px;
+            border: 2px solid green;
+            background: transparent;
+            outline: none;
+            font-size: 12px;
+            font-family: Poppin;
+            margin: 20px;
+            padding: 2px;
+
+           }
+
+           .column-three div:hover {
+            cursor: pointer;
+           background: darkgreen;
+           color: white;
+           }
+           
+           form {
+             padding-top: 60px;
+             border: none;
+           }
+
+
+           .column-three a {
+            width: 100px;
+            border: 2px solid green;
+            background: transparent;
+            outline: none;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            font-size: 12px;
+            font-family: Poppin;
+            margin: 20px;
+            padding: 2px;
+           }
+
+           .column-three div {
+            width: 100px;
+            border: 2px solid green;
+            background: transparent;
+            outline: none;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            font-size: 12px;
+            font-family: Poppin;
+            margin: 20px;
+            padding: 2px;
+           }
+
+           .button-format-process {
+            width: 150px;
+            border: 2px solid green;
+            background: green;
+            outline: none;
+            font-size: 12px;
+            font-family: PoppinBold;
+            color: white;
+            margin: 20px 0;
+            padding: 2px;
+           }
+
+            /*  Area of the ciecle style properties */
+
+            .area-of-triangle-circle {
+            max-width: 600px;
+            margin: 50px auto;
+            /* outline: 1px solid grey; */
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            }
+
+
+            .circle-input {
+            outline: none;
+            border: 1px solid black;
+            padding: 0 10px;
+            font-size: 20px;
+            width: 200px;
+            font-family: Poppin; 
+            }
+
+            /*  2-DIMENTIONAL LINEAR EQUATIONS STYLE SECTION */
+
+            .dValue {
+            width: 50px;
+            font-family: Poppin;
+            padding: 0 10px;
+            font-size: 20px;
+            outline: none;
+            border: 1px solid black;
+            margin-right: 10px;  
+            }
+
+            .two-d  {
+            max-width: 600px;
+            margin: 50px auto;
+            /* outline: 1px solid grey; */
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .threeD {
+             max-width: 650px;
+            margin: 50px auto;
+            /* outline: 1px solid grey; */
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .threeDvalue {
+            width: 40px;
+            font-family: Poppin;
+            padding: 0 10px;
+            font-size: 20px;
+            outline: none;
+            border: 1px solid black;
+            margin-right: 10px; 
+        }
+
+
+
+            /*   THREE VALUES CALCULATOR    */
+
+            .val {
+             width: 50px;
+            font-family: Poppin;
+            padding: 0 10px;
+            font-size: 20px;
+            outline: none;
+            border: 1px solid black;
+            margin-right: 10px;  
+            }
+
+            .values-wrapper {
+                max-width: 650px;
+                
+            }
+            .values-wrapper label {
+                font-size: 14px;
+            }
+
+            .n-input {
+             width: 90px;
+            font-family: Poppin;
+            padding: 0 10px;
+            font-size: 20px;
+            outline: none;
+            border: 1px solid black;
+            margin-right: 10px;  
+            }
+
+           .mode {
+             display: none;
+           }
+           .active {
+             display: block;
+           }
+           
+           
+           .guide {
+             max-width: 600px;
+             margin-left: 20px;
+             padding-bottom: 50px;
+             
+           }
+	</style>
+</head>
+<body class="body-calculator">
+    <header class="header">
+    	<div class="logo">MATHMASTER</div>
+    </header>
+    <main class="Calculator-wrapper">
+    	<div class="first-container">
+    		<div class="department-title">STUDENT PROFILE</div>
+    		<div class="profile-field">
+    			<image src="./image/profile.jpg" alt="Profile" class="profile-logo"></image>
+    			<span class="fullname bold"><%= us.fullname %></span>
+    		</div>
+    		<div class="matric-no-field">
+    			<span class="matric-title padding-right">Matric No:</span>
+    			<span class="matric-value bold"><%= us.matric_no%></span>
+    		</div>
+    		<div class="age-field">
+    			<span class="age-title padding-right">Age:</span> 
+                <% const yob = new Date(us.dob)%>
+                <% const cy = new Date()%>
+                <% const age = cy - yob; %>
+              
+    			<span class="age-value bold"><%= age %></span>
+    		</div>
+    		<div class="level-field">
+    			<span class="level-title padding-right">Level:</span>
+    			<span class="title-value bold"><%= us.level %></span>
+    		</div>
+    		<div class="log-field">
+    			<a href="/logout" class="logout" style="text-decoration: none; color: black; display: flex; align-items: center;">
+	    			<image src="./image/logout.png" alt="Logout" class="logout "></image>
+	    			<span class="bold" style="white-space: nowrap;">Log out</span>
+    			</a>
+    		</div>
+    	</div>
+
+
+
+    	<div class="second-container">
+    		<div class="calculator-mode">
+    			<span class="mode-title">Choose mode</span>
+    			<select class="select-calculator">
+    				<option value="Area of Triangle">Area of Triangle</option>
+    				<option value="Area of Circle">Area of Circle</option>
+    				<option value="2-Dimentional">2-Dimensional linear equations</option>
+    				<option value="3-Dimentional">3-Dimensional linear equations</option>
+    				<option value="Cartesian">Cartesian coordinate</option>
+    				<option value="Find Factorial of a Number">Find Factorial of a Number</option>
+    				<option value="Three-value calculator">Three-value calculator</option>
+    			</select>
+    		</div>
+
+
+
+	    	<div data-id="Area of Triangle" class="active mode area-of-triangle-conatiner">
+                <form class="area-of-triangle-form">
+    	    		<div class="column-one">
+    	    			<label>Side A = </label><input type="tel" required name="sideA" class="sideValue">
+    	    			<label>Side B = </label><input type="tel" required name="sideB" class="sideValue">
+    	    			<label>Side C = </label><input type="tel" required name="sideC" class="sideValue">
+    	    		</div>
+    	    		<div class="column-two">
+    	    			<label>Area = </label><input type="tel" name="area" class="area sideValue"><div class="loading"></div>
+    	    		</div>
+    	    		<div class="column-three">
+                        <a class="area-of-triangle how-to-use">How to use</a>
+                        <button class="button-format-process triangle-btn">Process</button>
+    	    			<div class="button-format triangle triangle-btn-res">Reset</div>
+    	    		</div>
+                </form>
+                <div class="guide how-to-use-content" >
+    <h3>How to Use the Area of Triangle Calculator:</h3>
+    <ol>
+        <li><strong>Input Sides:</strong> In the "Area of Triangle" section, enter the lengths of Side A, Side B, and Side C in the respective input fields. Please provide positive integer values only.</li>
+        <li><strong>Process:</strong> Click the "Process" button to calculate the area of the triangle.</li>
+        <li><strong>Calculating Area:</strong> The calculator will validate the input values and display a loading animation while calculating the area. The calculated area will be shown in the "Area" input field.</li>
+        <li><strong>View Result:</strong> Once the calculation is complete, the calculated area of the triangle will be displayed in the "Area" input field.</li>
+        <li><strong>Reset:</strong> To perform another calculation, click the "Reset" button. This action clears all input fields and the result area.</li>
+        <li><strong>Validation:</strong> If you enter non-numeric or negative values for the side lengths, the corresponding input field will be highlighted in red. Please correct the input before proceeding with the calculation.</li>
+    </ol>
+    <p><em>Example:</em> Suppose you have a triangle with Side A = 6, Side B = 8, and Side C = 10.</p>
+    <ol>
+        <li>Enter "6" in the "Side A" field.</li>
+        <li>Enter "8" in the "Side B" field.</li>
+        <li>Enter "10" in the "Side C" field.</li>
+        <li>Click the "Process" button.</li>
+        <li>Wait for the loading animation to finish, and the calculated area will appear in the "Area" field.</li>
+    </ol>
+    <p>Remember to provide valid positive integer values for the side lengths to get accurate results. If any input is incorrect, the calculator will notify you by highlighting the respective field in red.</p>
+</div>
+
+            </div>
+
+            <div class="mode area-of-triangle-circle">
+                <form class="circle-process-btn">
+                    <div class="column-one">
+                        <label>Radius(r) = </label><input type="tel" required name="radius" class="radius circle-input">
+                    </div>
+                    <div class="column-two">
+                        <label>Area = </label><input type="tel" name="area" class="circle-input circle-value"><div class="loading"></div>
+                    </div>
+                    <div class="column-three">
+                        <a class="area-of-circle how-to-use">How to use</a>
+                        <button class="button-format-process">Process</button>
+                        <div class="button-format triangle circle-reset-btn">Reset</div>
+                    </div>
+                </form>
+                <div class="how-to-use-content guide" >
+    <h3>How to Use the Area of Circle Calculator:</h3>
+    <ol>
+        <li><strong>Input Radius:</strong> In the "Area of Circle" section, enter the radius (r) of the circle in the input field. Please provide a positive integer value only.</li>
+        <li><strong>Process:</strong> Click the "Process" button to calculate the area of the circle.</li>
+        <li><strong>Calculating Area:</strong> The calculator will validate the input value and display a loading animation while calculating the area. The calculated area will be shown in the "Area" input field.</li>
+        <li><strong>View Result:</strong> Once the calculation is complete, the calculated area of the circle will be displayed in the "Area" input field.</li>
+        <li><strong>Reset:</strong> To perform another calculation, click the "Reset" button. This action clears the input field and the result area.</li>
+        <li><strong>Validation:</strong> If you enter a non-numeric value or a negative value for the radius, the input field will be highlighted in red. Please correct the input before proceeding with the calculation.</li>
+    </ol>
+    <p><em>Example:</em> Suppose you have a circle with a radius (r) of 5.</p>
+    <ol>
+        <li>Enter "5" in the "Radius (r)" field.</li>
+        <li>Click the "Process" button.</li>
+        <li>Wait for the loading animation to finish, and the calculated area will appear in the "Area" field.</li>
+    </ol>
+    <p>Remember to provide a valid positive integer value for the radius to get an accurate result. If the input is incorrect, the calculator will notify you by highlighting the input field in red.</p>
+</div>
+
+            </div>
+
+             <div class="two-d mode">
+                <form class="two-d-process-btn">
+                    <div class="column-one">
+                        <label>A11 = </label><input type="tel" required name="a11" class="dValue">
+                        <label>A12 = </label><input type="tel" required name="a12" class="dValue">
+                        <label>B1 = </label><input type="tel" required name="b1" class="dValue">
+                    </div>                    
+                    <div class="column-one">
+                        <label>A21 = </label><input type="tel" required name="a21" class="dValue">
+                        <label>A22 = </label><input type="tel" required name="a22" class="dValue">
+                        <label>B2 = </label><input type="tel" required name="b2" class="dValue">
+                    </div>
+                    <div class="column-one">
+                        <label>X = </label><input type="tel"  name="x" class="dValue"><div class="loading"></div>
+                        <label>Y = </label><input type="tel"  name="y" class="dValue"><div class="loading"></div>
+                    </div>
+                    <div class="column-three">
+                        <a class="two-d how-to-use">How to use</a>
+                        <button class="button-format-process">Process</button>
+                        <div class="button-format triangle two-d-reset-btn">Reset</div>
+                    </div>
+                </form>
+                <div class="how-to-use-content guide" >
+    <h3>How to Use the Two-Dimensional System of Equations Calculator:</h3>
+    <ol>
+        <li><strong>Input Coefficients and Constants:</strong> In the "Two-Dimensional" section, enter the coefficients and constants of the system of equations in the input fields. Provide integer values only.</li>
+        <li><strong>Process:</strong> Click the "Process" button to solve the system of equations and find the values of X and Y.</li>
+        <li><strong>Calculating X and Y:</strong> The calculator will validate the input values and display a loading animation while calculating the solutions. The calculated values of X and Y will be shown in the corresponding input fields.</li>
+        <li><strong>View Result:</strong> Once the calculation is complete, you'll see the values of X and Y in their respective input fields.</li>
+        <li><strong>Reset:</strong> To perform another calculation, click the "Reset" button. This action clears all input fields and the result areas.</li>
+        <li><strong>Validation:</strong> If you enter non-numeric values or invalid inputs, the corresponding input fields will be highlighted in red. Please correct the inputs before proceeding with the calculation.</li>
+    </ol>
+    <p><em>Example:</em> Suppose you have a system of equations: A11 = 2, A12 = 3, B1 = 12, A21 = 1, A22 = -1, B2 = 3.</p>
+    <ol>
+        <li>Enter "2" in the "A11" field.</li>
+        <li>Enter "3" in the "A12" field.</li>
+        <li>Enter "12" in the "B1" field.</li>
+        <li>Enter "1" in the "A21" field.</li>
+        <li>Enter "-1" in the "A22" field.</li>
+        <li>Enter "3" in the "B2" field.</li>
+        <li>Click the "Process" button.</li>
+        <li>Wait for the loading animation to finish, and the calculated values of X and Y will appear in their respective fields.</li>
+    </ol>
+    <p>Ensure that you provide valid integer values for coefficients and constants to get accurate results. If any input is incorrect, the calculator will notify you by highlighting the respective field in red.</p>
+</div>
+
+            </div>
+
+            <div class="area-of-triangle-conatiner mode values-wrapper">
+                <form class="three-value-form">
+                    <div class="column-one">
+                        <label>Value A = </label><input type="tel" required name="valueA" class="val">
+                        <label>Value B = </label><input type="tel" required name="valueB" class="val">
+                        <label>Value C = </label><input type="tel" required name="valueC" class="val">
+                    </div>
+                    <div class="column-two">
+                        <label>Sum = </label><input type="tel"  class="val">
+                        <label>Product = </label><input type="tel"  class="val">
+                        <label>Average = </label><input type="tel"  class="val">
+                    </div>
+                    <div class="column-three">
+                        <a class="three-value-how-to-use">How to use</a>
+                        <button class="button-format-process triangle-btn">Process</button>
+                        <div class="button-format triangle three-value-btn-res">Reset</div>
+                    </div>
+                </form>
+                <div class="how-to-use-content guide">
+    <h3>How to Use the Three-Value Calculator:</h3>
+    <ol>
+        <li><strong>Input Values:</strong> In the "Three-Value" section, enter three integer values (Value A, Value B, and Value C) in the respective input fields.</li>
+        <li><strong>Process:</strong> Click the "Process" button to calculate the sum, product, and average of the three values.</li>
+        <li><strong>Calculating Sum, Product, and Average:</strong> The calculator will validate the input values and calculate the sum, product, and average. The results will be displayed in the corresponding input fields.</li>
+        <li><strong>View Result:</strong> Once the calculation is complete, you'll see the calculated sum, product, and average in their respective input fields.</li>
+        <li><strong>Reset:</strong> To perform another calculation, click the "Reset" button. This action clears all input fields and the result areas.</li>
+        <li><strong>Validation:</strong> If you enter non-numeric values or invalid inputs, the corresponding input fields will be highlighted in red. Please correct the inputs before proceeding with the calculation.</li>
+    </ol>
+    <p><em>Example:</em> Suppose you have three values: Value A = 4, Value B = 7, and Value C = 10.</p>
+    <ol>
+        <li>Enter "4" in the "Value A" field.</li>
+        <li>Enter "7" in the "Value B" field.</li>
+        <li>Enter "10" in the "Value C" field.</li>
+        <li>Click the "Process" button.</li>
+        <li>The calculated sum (21), product (280), and average (7) will appear in their respective fields.</li>
+    </ol>
+    <p>Ensure that you provide valid integer values for the input fields to get accurate results. If any input is incorrect, the calculator will notify you by highlighting the respective field in red.</p>
+</div>
+
+            </div>
+
+           <div class="mode area-of-triangle-circle">
+                <form class="n-process-btn">
+                    <div class="column-one">
+                        <label>n = </label><input type="tel" required name="n" class="n-input">
+                    </div>
+                    <div class="column-two">
+                        <label>n! = </label><input type="tel" name="area" class="n-input n-value"><div class="loading"></div>
+                    </div>
+                    <div class="column-three">
+                        <a class="n-how-to-use">How to use</a>
+                        <button class="button-format-process">Process</button>
+                        <div class="button-format triangle n-reset-btn">Reset</div>
+                    </div>
+                </form>
+                <div class="how-to-use-content guide" >
+    <h3>How to Use the Factorial Calculator:</h3>
+    <ol>
+        <li><strong>Input Number:</strong> In the "Factorial" section, enter a positive integer value (n) for which you want to calculate the factorial. The input value should be between 0 and 99.</li>
+        <li><strong>Process:</strong> Click the "Process" button to calculate the factorial of the entered number.</li>
+        <li><strong>Calculating Factorial:</strong> The calculator will validate the input value and calculate the factorial using the formula n! = n × (n-1) × (n-2) × ... × 2 × 1.</li>
+        <li><strong>View Result:</strong> Once the calculation is complete, you'll see the calculated factorial (n!) in the "n!" input field.</li>
+        <li><strong>Reset:</strong> To perform another calculation, click the "Reset" button. This action clears the input field and the result area.</li>
+        <li><strong>Validation:</strong> If you enter non-numeric values, negative values, or values outside the range of 0 to 99, the input field will be highlighted in red. Please correct the input before proceeding with the calculation.</li>
+    </ol>
+    <p><em>Example:</em> Suppose you want to calculate the factorial of n = 5.</p>
+    <ol>
+        <li>Enter "5" in the "n" field.</li>
+        <li>Click the "Process" button.</li>
+        <li>The calculated factorial (5!) will appear in the "n!" input field.</li>
+    </ol>
+    <p>Provide a valid positive integer value for n within the range of 0 to 99 to get an accurate result. If the input is incorrect, the calculator will notify you by highlighting the input field in red.</p>
+</div>
+
+            </div>
+
+
+           <div class="mode area-of-triangle-circle threeD">
+               <form class="three-process-btn">
+    <div class="column-one">
+        <label>A11 = </label><input id="a11" type="tel" required class="threeDvalue">
+        <label>A12 = </label><input id="a12" type="tel" required class="threeDvalue">
+        <label>A13 = </label><input id="a13" type="tel" required class="threeDvalue">
+        <label>B1 = </label><input id="b1" type="tel" required class="threeDvalue">
+    </div>                    
+    <div class="column-one">
+        <label>A21 = </label><input id="a21" type="tel" required class="threeDvalue">
+        <label>A22 = </label><input id="a22" type="tel" required class="threeDvalue">
+        <label>A23 = </label><input id="a23" type="tel" required class="threeDvalue">
+        <label>B2 = </label><input id="b2" type="tel" required class="threeDvalue">
+    </div>
+    <div class="column-one">
+        <label>A31 = </label><input id="a31" type="tel" required class="threeDvalue">
+        <label>A32 = </label><input id="a32" type="tel" required class="threeDvalue">
+        <label>A33 = </label><input id="a33" type="tel" required class="threeDvalue">
+        <label>B3 = </label><input id="b3" type="tel" required class="threeDvalue">
+    </div>
+    <div class="column-one">
+        <label>X = </label><input id="x" type="tel" class="threeDvalue"><div class="loading"></div>
+        <label>Y = </label><input id="y" type="tel" class="threeDvalue"><div class="loading"></div>
+        <label>Z = </label><input id="z" type="tel" class="threeDvalue"><div class="loading"></div>
+    </div>
+    <div class="column-three">
+        <a class="dimensional-how-to-use">How to use</a>
+        <button class="button-format-process">Process</button>
+        <div class="button-format triangle dimensional-reset-btn">Reset</div>
+    </div>
+</form>
+<div class="how-to-use-content guide">
+    <h3>How to Use the Three-Dimensional System of Equations Calculator:</h3>
+    <ol>
+        <li><strong>Input Coefficients and Constants:</strong> In the "Three-Dimensional" section, enter the coefficients (A11, A12, A13, ..., A33) and constants (B1, B2, B3) of the system of equations in the respective input fields.</li>
+        <li><strong>Process:</strong> Click the "Process" button to solve the system of equations and find the values of X, Y, and Z.</li>
+        <li><strong>Calculating Values:</strong> The calculator will validate the input values and calculate the determinants and values of X, Y, and Z using Cramer's rule.</li>
+        <li><strong>View Result:</strong> Once the calculation is complete, you'll see the calculated values of X, Y, and Z in their respective input fields.</li>
+        <li><strong>Reset:</strong> To perform another calculation, click the "Reset" button. This action clears all input fields and the result areas.</li>
+        <li><strong>Validation:</strong> If you enter non-numeric values or invalid inputs, the corresponding input fields will be highlighted in red. Please correct the inputs before proceeding with the calculation.</li>
+    </ol>
+    <p><em>Example:</em> Suppose you have a system of equations:</p>
+    <ul>
+        <li>A11 = 2, A12 = 3, A13 = 1, B1 = 12</li>
+        <li>A21 = 1, A22 = -1, A23 = 2, B2 = 3</li>
+        <li>A31 = 3, A32 = 2, A33 = -2, B3 = 9</li>
+    </ul>
+    <ol>
+        <li>Enter the coefficients and constants in their respective fields.</li>
+        <li>Click the "Process" button.</li>
+        <li>Wait for the calculation to finish, and the calculated values of X, Y, and Z will appear in their respective fields.</li>
+    </ol>
+    <p>Ensure that you provide valid numeric values for coefficients and constants to get accurate results. If any input is incorrect, the calculator will notify you by highlighting the respective field in red.</p>
+</div>
+
+</div>
+
+
+  <div class="mode area-of-triangle-conatiner values-wrapper">
+
+                <form class="distance">
+
+                    <div class="column-one">
+                        <label>X1 = </label><input type="tel" required name="valueA" id="x1" class="val x">
+                        <label>X2 = </label><input type="tel" required name="valueB" id="x2" class="val x">
+                        <label>Y2 = </label><input type="tel" required name="valueC" id="y1" class="val x">
+                       <label>Y1 = </label><input type="tel" required name="valueC" id="y2" class="val x"> 
+                    </div>
+                    <div class="column-two">
+                        <label>Distance = </label><input type="tel" id="distance" class="val x">
+                    </div>
+                    <div class="column-three">
+                        <a class="three-value-how-to-use">How to use</a>
+                        <button class="button-format-process triangle-btn">Process</button>
+                        <div class="button-format triangle distance-btn-res">Reset</div>
+                    </div>
+                </form>
+                <div class="how-to-use-content guide" >
+    <h3>How to Use the Distance Calculator:</h3>
+    <ol>
+        <li><strong>Input Coordinates:</strong> In the "Distance" section, enter the coordinates (X1, X2, Y1, Y2) of the two points for which you want to calculate the distance.</li>
+        <li><strong>Process:</strong> Click the "Process" button to calculate the distance between the two points.</li>
+        <li><strong>Calculating Distance:</strong> The calculator will validate the input coordinates and use the formula to calculate the distance between the points.</li>
+        <li><strong>View Result:</strong> Once the calculation is complete, you'll see the calculated distance in the "Distance" input field.</li>
+        <li><strong>Reset:</strong> To perform another calculation, click the "Reset" button. This action clears all input fields and the result area.</li>
+        <li><strong>Validation:</strong> If you enter non-numeric values or invalid inputs, the corresponding input fields will be highlighted in red. Please correct the inputs before proceeding with the calculation.</li>
+    </ol>
+    <p><em>Example:</em> Suppose you have two points with coordinates:</p>
+    <ul>
+        <li>X1 = 3, X2 = -13, Y1 = 15, Y2 = 3</li>
+    </ul>
+    <ol>
+        <li>Enter the coordinates in their respective fields.</li>
+        <li>Click the "Process" button.</li>
+        <li>Wait for the calculation to finish, and the calculated distance will appear in the "Distance" input field.</li>
+    </ol>
+    <p>Ensure that you provide valid numeric values for the coordinates to get accurate results. If any input is incorrect, the calculator will notify you by highlighting the respective field in red.</p>
+</div>
+
+            </div>
+            
+            
+            
+
+    	</div>
+    </main>
+    <footer class="copyright-wrapper">
+    	<div class="copyright-text">
+    		Designed, Developed of the project by Isah Bashar &copy;2023
+    	</div>
+    	
+    </footer>
+
+    <script>
+        // GENERAL ANIMATION LOADER
+        var loader = document.querySelectorAll('.loading');
+
+
+
+     // CHANGE BEHAVIOR
+var mode = document.querySelectorAll('.mode');
+var changeBehavior = document.querySelector('.select-calculator'); 
+
+changeBehavior.addEventListener('change', (e) => {
+  mode.forEach(cal => {
+    cal.style.display = 'none';
+    var currentMode = e.target.value;
+    if(currentMode === 'Area of Triangle' ) {
+      mode[0].style.display = 'flex';
+    }
+    if(currentMode === 'Area of Circle' ) {
+      mode[1].style.display = 'flex';
+    }
+    if (currentMode === '2-Dimentional') {
+      mode[2].style.display = 'flex';
+     }
+    if (currentMode === '3-Dimentional') {
+      mode[5].style.display = 'flex';
+      }
+    if (currentMode === 'Cartesian') {
+      mode[6].style.display = 'flex';
+       }
+    if (currentMode === 'Find Factorial of a Number') {
+      mode[4].style.display = 'flex';
+        }
+         if (currentMode === 'Three-value calculator') {
+           mode[3].style.display = 'flex';
+         }
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
+        // AREA OF THE TRIANGLE SECTION
+        var areaOfTriangleForm = document.querySelector('.area-of-triangle-form');
+        var areaOfTriangleResetBtn = document.querySelector('.triangle-btn-res');
+        var areaOfTriangleTextField = document.querySelectorAll('.sideValue');
+        var areaOfTriangleHowToUse = document.querySelector('.area-of-triangle-how-to-use');
+        areaOfTriangleResetBtn.addEventListener('click', () => {
+           areaOfTriangleTextField.forEach(input => {
+            input.value = '';
+            input.style.border = '1px solid black'
+           } );
+        });
+        areaOfTriangleForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            var numRegEx = /^\d+$/;
+            var sideA = e.target.sideA.value;
+            var sideB = e.target.sideB.value;
+            var sideC = e.target.sideC.value;
+            var areaOutput = e.target.area.value;
+            areaOfTriangleTextField[3].value = '';
+
+            var a = parseInt(sideA);
+            var b = parseInt(sideB);
+            var c = parseInt(sideC);
+
+            let g = (a+b+c)/2;
+            let area = Math.sqrt(g*(g - sideA)*(g - sideB)*(g - sideC));
+
+            
+
+             
+             if(numRegEx.test(sideA) && numRegEx.test(sideB) && numRegEx.test(sideC)) {
+                 areaOfTriangleTextField[0].style.border = '1px solid black';
+                 areaOfTriangleTextField[1].style.border = '1px solid black';
+                 areaOfTriangleTextField[2].style.border = '1px solid black';
+                loader[0].style.display = 'flex';
+               setTimeout(() => {
+                loader[0].style.display = 'none';
+                areaOfTriangleTextField[3].value = Math.round(area);
+             }, 2000);
+                
+            }
+
+            if(numRegEx.test(a)) {
+                areaOfTriangleTextField[0].style.border = '1px solid black';
+            }
+            if(numRegEx.test(b)) {
+               areaOfTriangleTextField[1].style.border = '1px solid black';
+            }
+            if(numRegEx.test(c)) {
+               areaOfTriangleTextField[2].style.border = '1px solid black';
+            }
+
+
+
+            if(numRegEx.test(a) === false) {
+               areaOfTriangleTextField[0].style.border = '2px solid red';
+            }
+
+            if(numRegEx.test(b) === false) {
+               areaOfTriangleTextField[1].style.border = '2px solid red';   
+            }
+
+            if(numRegEx.test(c) === false) {
+               areaOfTriangleTextField[2].style.border = '2px solid red';
+            }
+
+
+        })
+
+        // AREA OF THE CIRCLE 
+        var circleProcessBtn = document.querySelector('.circle-process-btn');
+        var circleResetBtn = document.querySelector('.circle-reset-btn');
+        var circleInputField = document.querySelectorAll('.circle-input');
+        var circleHowToUse = document.querySelector('.area-of-circle-how-to-use');
+        circleResetBtn.addEventListener('click', () => {
+            circleInputField[0].style.border = "1px solid black";
+            circleInputField.forEach(input => input.value = '');
+        })
+        circleProcessBtn.addEventListener('submit', (e) => {
+            e.preventDefault();
+            var radiusStr = e.target.radius.value;
+            var radius = parseInt(radiusStr);
+            var area = Math.PI * Math.pow(radius, 2);
+            var numberRegEx = /^\d+$/;
+            circleInputField[1].value = '';
+            
+
+            if(numberRegEx.test(radiusStr)) {
+                circleInputField[0].style.border = "1px solid black";
+                loader[1].style.display = 'block';
+                setTimeout(() => {
+                    circleInputField[1].value = Math.round(area);
+                    loader[1].style.display = 'none';
+                }, 2000);
+            } 
+
+            if(numberRegEx.test(radiusStr) === false) {
+                circleInputField[0].style.border = "2px solid red";
+            }
+
+        })
+
+
+        // 2-DIMENTIONAL LINEAR EQUATIONS
+        var twoDprocessBtn = document.querySelector('.two-d-process-btn');
+        var twoDresetBtn = document.querySelector('.two-d-reset-btn');
+        var twoDValue = document.querySelectorAll('.dValue');
+        twoDresetBtn.addEventListener('click', () => {
+            twoDValue.forEach(inp => { 
+                inp.value = "";
+                inp.style.border = "1px solid black";
+        })
+        });
+        twoDprocessBtn.addEventListener('submit', (e) => {
+            e.preventDefault();
+            var numberRegEx = /^(\-)?\d+$/;
+
+            var a11Str = e.target.a11.value;
+            var a12Str = e.target.a12.value;
+            var a21Str = e.target.a21.value;
+            var a22Str = e.target.a22.value;
+            var b1Str  = e.target.b1.value;
+            var b2Str = e.target.b2.value;
+
+            var a11 = parseInt(a11Str);
+            var a12 = parseInt(a12Str);
+            var a21 = parseInt(a21Str);
+            var a22 = parseInt(a22Str);
+            var b1 = parseInt(b1Str);
+            var b2 = parseInt(b2Str);
+
+            var detA = a11 * a22 - a21 * a12;
+            var detX = b1 * a22 - b2 * a12;
+            var detY = a11 * b2 - a21 * b1; 
+
+            var x = detX / detA;
+            var y = detY / detA;
+
+            if(numberRegEx.test(a11) && numberRegEx.test(a12) && numberRegEx.test(a21) && numberRegEx.test(a22) && numberRegEx.test(b1) && numberRegEx.test(b2)) {
+                loader[2].style.display = 'block';
+                loader[3].style.display = 'block';
+
+                twoDValue.forEach(textField => textField.style.border = '1px solid black');
+
+                setTimeout(() => {
+                twoDValue[6].value = x.toFixed(3);
+                twoDValue[7].value = y.toFixed(3);
+                loader[2].style.display = 'none';
+                loader[3].style.display = 'none';
+                }, 2000);
+            } 
+
+
+
+
+            
+
+            if(numberRegEx.test(a11) === false ) {
+               twoDValue[0].style.border = '1px solid red';
+            }
+            if(numberRegEx.test(a12) === false ) {
+               twoDValue[1].style.border = '1px solid red';   
+            }
+            if(numberRegEx.test(a21) === false ) {
+               twoDValue[2].style.border = '1px solid red';
+            }
+            if(numberRegEx.test(a22) === false ) {
+               twoDValue[3].style.border = '1px solid red';
+            }
+            if(numberRegEx.test(b1) === false ) {
+               twoDValue[4].style.border = '1px solid red';
+            }
+            if(numberRegEx.test(b2) === false )  {
+               twoDValue[5].style.border = '1px solid red';
+            }
+
+
+            if(numberRegEx.test(a11)) {
+               twoDValue[0].style.border = '1px solid black';
+            }
+            if(numberRegEx.test(a12)) {
+               twoDValue[1].style.border = '1px solid black';   
+             }
+            if(numberRegEx.test(b1)) {
+               twoDValue[2].style.border = '1px solid black';
+            }
+            
+            if(numberRegEx.test(a21)) {
+               twoDValue[3].style.border = '1px solid black';
+            }
+            if(numberRegEx.test(a22)) {
+               twoDValue[4].style.border = '1px solid black';
+            }
+            if(numberRegEx.test(b2)) {
+               twoDValue[5].style.border = '1px solid black';
+            }
+
+        });
+
+
+        // THREE-VALUES CALCULATOR
+        var threeValuesForm = document.querySelector('.three-value-form');
+        var threeValueReset = document.querySelector('.three-value-btn-res');
+        var threeInputField = document.querySelectorAll('.val');        
+        threeValueReset.addEventListener('click', () => {
+            threeInputField.forEach(inp => {
+                inp.value = '';
+                inp.style.border = '1px solid black';
+            })
+        })
+        threeValuesForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            var numberRegEx = /^(-)?\d+$/;
+
+            var valueA = parseInt(threeInputField[0].value);
+            var valueB = parseInt(threeInputField[1].value);
+            var valueC =parseInt(threeInputField[2].value);
+
+            var sum = (valueA + valueB + valueC);
+            var product = (valueA * valueB * valueC);
+            var average = sum/3;
+
+            if(numberRegEx.test(valueA) && numberRegEx.test(valueB) && numberRegEx.test(valueC)) {
+                threeInputField[3].value = sum;
+                threeInputField[4].value = product;
+                threeInputField[5].value = average;
+            }
+
+
+            if(numberRegEx.test(valueA)) {
+               threeInputField[0].style.border = '1px solid black'; 
+            }
+
+            if(numberRegEx.test(valueB)) {
+               threeInputField[1].style.border = '1px solid black'; 
+            }
+
+            if(numberRegEx.test(valueC)) {
+               threeInputField[2].style.border = '1px solid black'; 
+            }
+
+            if(numberRegEx.test(valueA) === false) {
+               threeInputField[0].style.border = '1px solid red'; 
+            }
+
+            if(numberRegEx.test(valueB) === false) {
+               threeInputField[1].style.border = '1px solid red'; 
+            }
+
+            if(numberRegEx.test(valueC) === false) {
+               threeInputField[2].style.border = '1px solid red'; 
+            }
+
+
+        })
+
+
+        // FIND A FACTORIAL OF A NUMBER
+        var nForm = document.querySelector('.n-process-btn');
+        var nReset = document.querySelector('.n-reset-btn');
+        var nInput = document.querySelectorAll('.n-input');
+        nReset.addEventListener('click', () => {
+            nInput.forEach(inp => {
+                inp.value = '';
+                inp.style.border = '1px solid black';
+            });
+        });      
+        nForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            var numberRegEx = /^[0-9]{1,2}$/;
+            var number = Number(e.target.n.value);
+            
+            var factorial = 1;
+
+            if(numberRegEx.test(number)) {
+            for(let i = 1; i <= number; i++) {
+            factorial *= i;
+            }
+            nInput[1].value = factorial;
+            nInput[0].style.border = '1px solid black';
+            }
+
+           if(numberRegEx.test(number) === false) {
+            nInput[0].style.border = '1px solid red';
+           }
+
+        });  
+
+
+        // 3-DIMENSINAL LINEAR EQUATIONS 
+        
+    var a11Input = document.getElementById("a11");
+    var a12Input = document.getElementById("a12");
+    var a13Input = document.getElementById("a13");
+    var b1Input = document.getElementById("b1");
+
+    var a21Input = document.getElementById("a21");
+    var a22Input = document.getElementById("a22");
+    var a23Input = document.getElementById("a23");
+    var b2Input = document.getElementById("b2");
+
+    var a31Input = document.getElementById("a31");
+    var a32Input = document.getElementById("a32");
+    var a33Input = document.getElementById("a33");
+    var b3Input = document.getElementById("b3");
+
+    var xInput = document.getElementById("x");
+    var yInput = document.getElementById("y");
+    var zInput = document.getElementById("z");
+
+
+
+        var threeDValuesForm = document.querySelector('.three-process-btn');
+        var threeDValueReset = document.querySelector('.dimensional-reset-btn');
+        var threeDInputField = document.querySelectorAll('.threeDvalue');
+        threeDValueReset.addEventListener('click', (e) => {
+            threeDInputField.forEach(inp => {
+                inp.value = '';
+                inp.style.border = '1px solid black';
+            })
+        });
+        threeDValuesForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+
+            var numberRegEx = /^(-)?\d+$/;
+
+        var a11 = Number(a11Input.value);
+        var a12 = Number(a12Input.value);
+        var a13 = Number(a13Input.value);
+        var b1 = Number(b1Input.value);
+
+        var a21 = Number(a21Input.value);
+        var a22 = Number(a22Input.value);
+        var a23 = Number(a23Input.value);
+        var b2 = Number(b2Input.value);
+
+        var a31 = Number(a31Input.value);
+        var a32 = Number(a32Input.value);
+        var a33 = Number(a33Input.value);
+        var b3 = Number(b3Input.value);
+
+       
+
+var detA = a11 * (a22 * a33 - a23 * a32) - a12 * (a21 * a33 - a23 * a31) + a13 * (a21 * a32 - a22 * a31);
+
+        // Calculating determinants for X, Y, and Z
+        var detX = b1 * (a22 * a33 - a23 * a32) - a21 * (b2 * a33 - a23 * b3) + a31 * (b2 * a32 - a22 * b3);
+        var detY = a11 * (b2 * a33 - a23 * b3) - a21 * (a12 * a33 - a13 * b3) + a31 * (a12 * b2 - b2 * a13);
+        var detZ = a11 * (a22 * b3 - b2 * a32) - a21 * (a12 * b3 - b2 * a13) + a31 * (a12 * a22 - a22 * a12);
+
+        // Calculating values of X, Y, and Z
+        var X = detX / detA;
+        var Y = detY / detA;
+        var Z = detZ / detA;
+
+console.log("Input values:", a11, a12, a13, b1, a21, a22, a23, b2, a31, a32, a33, b3);
+console.log("Determinants:", detA, detX, detY, detZ);
+console.log("Values of x, y, z:", x, y, z);
+
+
+      if(numberRegEx.test(a11) && numberRegEx.test(a12) && numberRegEx.test(a13) && numberRegEx.test(a21) && numberRegEx.test(a22) && numberRegEx.test(a23) && numberRegEx.test(b1) && numberRegEx.test(b2)&& numberRegEx.test(b3)  ) {
+        xInput.value = X;
+        yInput.value = Y;
+        zInput.value = Z;
+        
+      }
+ 
+            
+        })
+        
+        
+        
+        var distanceForm = document.querySelector('.distance');
+        distanceForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          var x1 = parseFloat(document.getElementById("x1").value);
+        var x2 = parseFloat(document.getElementById("x2").value);
+        var y1 = parseFloat(document.getElementById("y1").value);
+        var y2 = parseFloat(document.getElementById("y2").value);
+
+        var distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        document.getElementById("distance").value = distance;
+   
+        })
+
+        
+
+        var distanceRes = document.querySelector('.distance-btn-res');
+        var x = document.querySelectorAll('.x');
+      distanceRes.addEventListener('click', () => {
+
+            x.forEach(inp => {
+                inp.value = '';
+                inp.style.border = '1px solid black';
+            });
+        });  
+        
+        
+         // Logging out from the application
+    var logoutBtn = document.querySelector('.logout');
+    logoutBtn.addEventListener('click', async () => {
+      try {
+      const res = await fetch('/logout');
+      const goAhead = await res.json();
+      if(goAhead.logout) {
+        location.assign('/');
+      } 
+      } catch(err) {
+       console.log(err);
+      }
+    });
+
+    </script>
+</body>
+</html>

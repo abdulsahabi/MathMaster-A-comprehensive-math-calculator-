@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        /* CUSTOM FONTS SECTION */
+        @font-face {
+            font-family: PoppinBold;
+            src: url(./font/Poppins-Bold.ttf);
+        }
+
+        @font-face {
+            font-family: PoppinSemiBold;
+            src: url(./font/Poppins-SemiBold.ttf);
+        }
+
+        @font-face {
+            font-family: Poppin;
+            src: url(./font/Poppins-Medium.ttf);
+        }
+        body {
+            font-family: Poppin;
+            background: #FAFAFA;
+        }
+
+        /* HEADER STYLE IN MAIN WEB PAGE INDEX */
+        .index-header {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+  
+        
+        .privacy-section {
+            display: flex;
+        }
+
+        .priv-sec {
+            display: block;
+            padding: 0 15px;
+            color: dimgray;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .login {
+            font-size: 19px;
+            text-decoration: none;
+            color: black;
+            font-family: PoppinBold;
+            border-bottom: 3px solid green;
+        }
+
+        .active-privacy {
+            border: 2px solid black;
+            transition: all 0.5 ease;
+            background-color: lightgrey;
+        }
+        .header-wrapper {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+
+        /* FIRST SECTION IN THE INDEX FILE */
+        .first-section {
+            display: flex;
+            flex-direction: column;
+            max-width: 900px;
+            margin: 30px auto;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px;
+
+        }
+        .dept {
+            display: flex;
+            align-items: center;
+            border-left: 5px solid green;
+            padding: 0 5px;
+        }
+
+        .department-image {
+            width: 5%;
+            border: 2px solid green;
+            border-radius: 50%;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .title {
+            font-size: 20px;
+            color: dimgray;
+        }
+        .math-title {
+            font-size: 60px;
+            color: green;
+            font-family: PoppinBold;
+        }
+        .math-cal {
+            letter-spacing: 4px;
+        }
+
+
+        /* SECOND SECTION IN THE INDEX FILE */ 
+        .second-section {
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 50px 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 4px lightgray;
+        }
+
+        
+        .wrapper-section {
+            background-color: green;
+            padding: 50px 30px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            color: white;
+        } 
+
+        .start-here {
+            border-left: 6px solid white;
+            padding: 0 5px;
+        }
+
+        .calculator-txt {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .in {
+            color: yellow;
+            padding-top: 10px;
+        }
+
+        .learn-more {
+            font-size: 10px;
+            padding-bottom: 50px;
+        }
+
+        .learn-more-link {
+            background-color: white;
+            color: blue;
+            font-weight: bold;
+            padding: 2px 5px;
+        }
+
+        .sign-up-index {
+            text-align: center;
+            color: white;
+            background-color: green;
+            padding: 5px 15px;
+            font-weight: bold;
+            text-decoration: none;
+            border: 2px solid black;
+        }
+
+        .sign-up-index:hover {
+            background-color: limegreen;
+            border-radius: 12px;
+        }
+
+        .sign-up-first-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        /*  THIRD SECTION CONTAINER IN THE FILE */
+        .third-container {
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 50px 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 4px lightgray;
+        }
+
+        .container-section {
+            background-color: green;
+            border-radius: 20px;
+            padding: 40px 50px;
+            color: #FAFAFA;
+        }
+
+        .math-header-perform {
+            font-family: PoppinBold;
+        }
+        .read-more {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .read-more-links {
+            display: block;
+            background-color: green;
+            padding: 5px 7px;
+            border: 1px solid black;
+            color: #FAFAFA;
+            text-decoration: none;
+        }
+
+        .read-more-links:hover {
+            background-color: limegreen;
+            border-radius: 12px;
+        }
+
+        .flex-direction {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .footer-index {
+            display: flex;
+            position: relative;
+            left: 0;
+            bottom: 0;
+            height: 70px;
+            width: 100%;
+            background: green;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            color: #FAFAFA;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <header class="index-header">
+        <div class="header-wrapper">
+            <div class="privacy-section">
+                <a href="#" class="about priv-sec active{}-privacy">
+                    About
+                </a>
+                <a href="#" class="priv-sec">
+                    Privacy Policy
+                </a>
+                <a href="#" class="priv-sec">
+                    Terms and Conditions
+                </a>
+            </div>
+            <div class="sign-in" class="priv-sec">
+                <a href="/login" class="login">
+                    Sign In
+                </a>
+            </div>
+            
+            
+        </div>
+    </header>
+
+
+    <div class="first-section">
+        <div class="dept">
+           <img src="./image/department.jpg" alt="Department logo" class="department-image"> 
+           <div class="title">
+            Department of Computer Science
+           </div>
+        </div>
+
+        <div class="math-title">
+            MATHMASTER
+        </div>
+        <div class="math-cal">
+            A COMPREHENSIVE MATH CALCULATOR
+        </div>
+   
+    <div class="flex-direction">
+        <div class="second-section">
+            <div class="wrapper-section">
+                    <div class="start-here">
+                        START HERE
+                    </div>
+                    <div class="calculator-txt"> 
+                    <div class="in">7 in 1</div>
+                        CALCULATOR
+                    </div>
+                    <div class="learn-more">
+                        Compute different math solutions with MathMaster <span><a href="#" class="learn-more-link">Learn more</a></span>
+                    </div>
+            </div>
+            <div class="sign-up-first-container">
+            <a href="/sign-up" class="sign-up-index">
+                            Sign Up
+            </a>
+        </div>
+        </div>
+
+        <div class="third-container">
+            <div class="container-section">
+                <div class="math-header-perform">
+                            MATHMASTER perform:
+                    </div>
+                    <ul class="list-of-tasks">
+                        <li class="topic-list">Area of Triangle</li>
+                        <li class="topic-list">Area of Circle</li>
+                        <li class="topic-list">2-Dimensional Linear equations</li>
+                        <li class="topic-list">3-Dimensional linear equations</li>
+                        <li class="topic-list">Find Factorial of a Number</li>
+                        <li class="topic-list">Cartesian coordinate</li>
+                        <li class="topic-list">Three-value calculator</li>
+                    </ul>
+                </div>
+                <div class="read-more">
+                    <a href="#" class="read-more-links">Read More</a>
+                </div>
+        </div>
+    </div>
+</div>
+    <footer class="footer-index">
+        <div class="footer-section">
+            Designed, Developed of project by Isah Bashar &copy; 2023
+        </div>
+    </footer>
+
+
+    <script>
+        var headerSection = document.querySelectorAll('.priv-sec');
+
+        headerSection.forEach((header) => {
+            header.addEventListener('click', () => {
+                headerSection.forEach(header => header.classList.remove('active-privacy'));
+                header.classList.add('active-privacy');
+            })
+        })
+    </script>
+</body>
+</html>

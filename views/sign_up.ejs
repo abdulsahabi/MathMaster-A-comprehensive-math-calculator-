@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         /* CUSTOM FONTS SECTION */
+        @font-face {
+            font-family: PoppinBold;
+            src: url(./font/Poppins-Bold.ttf);
+        }
+
+        @font-face {
+            font-family: PoppinSemiBold;
+            src: url(./font/Poppins-SemiBold.ttf);
+        }
+
+        @font-face {
+            font-family: Poppin;
+            src: url(./font/Poppins-Medium.ttf);
+        }
+        
+        
+    body {
+      background: #FAFAFA;
+      font-family: Poppin;
+      padding: 100px;
+    }
+      .sign-up-wrapper {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        margin: 60px 0;
+     
+      }
+      
+      .sign-up-container {
+        max-width: 600px;
+/*        border: 1px solid grey;*/
+        background: white;
+        padding: 60px;
+        margin: 50px auto;
+        box-shadow: -2px 5px 4px lightgray;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .sign-up-field {
+        margin: 10px 15px;
+        position: relative;
+        display: flex;
+        width: 280px;
+        flex-direction: column;
+      
+            }
+      
+      .sign-up-header {
+        font-family: PoppinBold;
+        font-size: 25px;
+        margin: 30px;
+      }
+      
+         .sign-up-field label {
+           position: absolute;
+           pointer-events: none;
+           font-size: 18px;
+           top: 12px;
+           left: 12px;
+           color: grey;
+           
+          }
+           .sign-up-field input {
+             width: 250px;
+             padding: 10px;
+             font-size: 18px;
+             font-family: Poppin;
+             border-radius: 10px;
+             border: 1px solid grey;
+             outline: none;
+           }
+           
+           .sign-up-field input:focus ~ label,   .sign-up-field input:valid ~ label {
+             transform: translate(10px, -20px);
+             transition: transform .6s;
+             background: white;
+             padding: 0 6px;
+             font-size: 14px;
+           }
+           
+           .sign-up-field input:hover {
+             border: 1px solid green;
+           }
+           
+           
+      .sign-up-field   .error {
+           display: flex;
+           color: red;
+           font-size: 15px;
+         }
+         
+         .sign-up-field select {
+          width: 270px;
+          padding: 10px;
+          outline: none;
+          border:  1px solid grey;
+          background: white;
+          font-size: 18px;
+          font-family: Poppin;
+          border-radius: 10px;
+         }
+         
+         .sign-up-field .sign-up-privacy {
+           font-size: 11px;
+           display: flex;
+           white-space: nowrap;
+           align-items: center;
+           justify-content: center;
+           text-align: center;
+           width: 264px;
+         }
+       .sign-up-field a {
+          color: blue;
+          text-decoration: none;
+       }
+       
+       .sign-up-field button {
+         width: 265px;
+         font-size: 17px;
+         font-family: PoppinBold;
+         color: white;
+         background: green;
+         border: 1px solid green;
+         padding: 10px;
+         
+       }
+       
+        .sign-up-field button:hover {
+          border-radius: 10px;
+          border-color: black;
+        }
+        
+        .sign-up-field .or {
+          width: 200px;
+          height: 1px;
+          background: grey;
+          align-self: center;
+          margin: 20px;
+          position: relative;
+        }
+        
+          .sign-up-field .or::before {
+            content: 'Or';
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            color: grey;
+            top: -10px;
+            right: 90px;
+            background: white;
+            text-align: center;
+          }
+          
+          .sign-up-field .already {
+            align-self: center;
+          }
+          
+          .sign-up-field img {
+            width: 22px;
+            position: absolute;
+            right: 12px;
+            top: 4px;
+            background: white;
+            padding: 8px;
+            border-left: 1px solid grey;
+            cursor: pointer;
+            }
+            
+            .creating-account-loading {
+            position: relative;
+            display: flex;
+                      }
+            
+            .bgAnim {
+              position: fixed;
+              background: white;
+              width: 100%;
+              height: 100vh;
+              z-index: 1;
+              top: 0;
+              left: 0;
+              margin: 0;
+              opacity: 0.6;
+            }
+            
+             .creating-account-loading  .spinner-creating-account {
+              background: green;
+              width: 100px;
+              height: 100px;
+              z-index: 2;
+              position: absolute;
+              top: px;
+            }
+            
+            .circle {
+              background: transparent;
+              width: 42px;
+              height: 42px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: fixed;
+              z-index: 3;
+              top: 40vh;
+              border-radius: 50%;
+              border: 8px solid lightgray;
+              border-left-color: green;
+              
+            }
+           .circle::before {
+             content: 'Creating your account';
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: absolute;
+              width: 300px;
+              z-index: 3;
+              top: 50px;
+              left: -120px;
+              font-weight: bold;
+          
+            }
+            
+           .bgAnim + div {
+              z-index: 5;
+              animation: circle 0.9s linear infinite;
+            }
+         
+            
+            .bgAnim + div::before {
+              content: '';
+            }
+         
+            
+          @keyframes circle {
+            0% {
+              transform: rotate(0deg);
+            } 50% {
+              transform: rotate(180deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+          
+          .hidden-sign-up-loader {
+            display: none;
+          }
+          
+          .show-sign-up-loader {
+            display: flex;
+          }  
+         
+         .icon {
+           display: none;
+         }
+         
+         .matric-no-wrapper {
+          display: none;
+         }
+        </style>
+    
+    
+</head>
+<body>
+  
+
+ <form>
+
+<div class="sign-up-wrapper">
+
+     <div class="bgAnim hidden-sign-up-loader "></div>
+        <div class="circle hidden-sign-up-loader "></div>
+        <div class="circle hidden-sign-up-loader " style="animation: none;"></div>    
+
+  <div class="sign-up-container">
+    
+    <div class="sign-up-header">Create your Account</div>
+    
+    <div class="sign-up-field">
+      <input type="text" required class="sign-up-name" name="fullname">
+      <label>Full Name</label>
+      <div class="error err-name"></div>
+    </div>
+     
+        
+    <div class="sign-up-field">
+      <input type="text" required class="sign-up-email" name="email">
+      <label>Email address</label>
+      <div class="error err-name"></div>
+    </div>
+
+    <div class="sign-up-field">
+      <select name="level" class="gender">
+            <option disabled selected>
+              Choose gender
+            </option>
+            <option value="Male">
+              Male
+            </option>
+            <option value="Female">
+              Female
+            </option>
+      </select> 
+      <div class="error"></div>
+    </div>
+    
+    <div class="sign-up-field">
+       <select name="level" class="level">
+            <option disabled selected>
+              Choose Level
+            </option>
+            <option value="100">
+              100
+            </option>
+            <option value="200">
+              200
+            </option>
+            <option value="300">
+              300
+            </option>
+            <option value="400">
+              400
+            </option>
+      </select> 
+      <div class="error err-name"></div>
+    </div>
+   
+    <div class="sign-up-field matric-no-wrapper">
+      <input type="text"  class="sign-up-matric-no" name="matric">
+      <label>Matric No</label>
+     <div class="error err-matric"></div>
+    </div>
+      
+  
+    <div class="sign-up-field">
+         <input type="date" required class="sign-up-date" name="dob">
+         <!-- <label>Date of Birth</label> -->
+         <div class="error err-dob"></div>
+    </div>
+    <div class="sign-up-field">
+          <input type="password" required class="sign-up-password" name="pass">
+          <label> Create password</label>
+          <image src="./image/view.png" alt="icon" class="icon"></image>
+          <div class="error err-password"></div>
+    </div>
+        <div class="sign-up-field">
+          <input type="password" required class="sign-up-confirm" name="confirm">
+          <label>Confirm password</label>
+          <image src="./image/view.png" alt="icon" class="icon"></image>
+          <div class="error err-confirm"></div>
+    </div>
+    
+    <div class="sign-up-field">
+      <div class="sign-up-privacy">
+         <input type="checkbox" id="agree"required class="sign-up-checkbox" name="password">
+         <span>I agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms & Conditions</a></span>
+      </div>
+   </div>
+   
+   
+  <div class="sign-up-field">
+    <button>
+      Sign Up
+    </button>
+  </div>
+  
+  <div class="sign-up-field">
+   <div class="or"></div>
+  </div>
+  
+  <div class="sign-up-field">
+      <div class="already">Already have an account <a href="/login">Sign In</a></div>
+  </div>
+       
+        
+  </div>
+</div>
+
+</form>
+
+<script>
+  // Reference an element from the body tag to the DOM for validation and request process.......
+  var hiddenPassword = document.querySelectorAll('.icon');
+  var fullname = document.querySelector('.sign-up-name');
+  var email = document.querySelector('.sign-up-email');
+  var dob = document.querySelector('.sign-up-date');
+  var password = document.querySelector('.sign-up-password');
+  var confirmPassword = document.querySelector('.sign-up-confirm');
+  var matricNo = document.querySelector('.sign-up-matric-no');
+  var programOption = document.querySelector('.matric-no-option');
+  var form = document.querySelector('form');
+  var gender = document.querySelector('.gender');
+  var level = document.querySelector('.level');
+  var matricContainer = document.querySelector('.matric-no-wrapper');
+  var errors = document.querySelectorAll('.error');
+
+
+
+   
+
+
+  // Global variable
+   var matricReg = /^(NCS)(\/\EP)?\/(21|22|23|24)\/\d{4}$/;
+
+   // CHECKING THE USER GENDER AND PROGRAM LEVEL, E.G ND OR HND (Then, we will valiadate their matric number) 
+  function changeEvent() {
+   var selectedGender = gender.value;
+   var selectedLevel = level.value;
+
+   if((selectedGender !== 'Choose gender') && (selectedLevel !== 'Choose Level')) {
+      matricContainer.style.display = 'flex';
+      matricNo.setAttribute('required', 'true');
+      errors[4].textContent = '';
+   }
+
+   if((selectedLevel == 100) || (selectedLevel == 200)) {
+    matricReg = /^(NCS)(\/\EP)?\/(21|22|23|24)\/\d{4}$/;
+   }
+
+   if((selectedLevel == 300) || (selectedLevel == 400)) {
+    matricReg = /^(HCS)\/(21|22|23)\/\d{4}$/;
+   }}
+  
+  level.addEventListener('change', changeEvent);
+  gender.addEventListener('change', changeEvent);
+
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+  // Student object properties
+  var fullnam = e.target.fullname.value;
+  var emailAddress = e.target.email.value;
+  var matric_no = e.target.matric.value.toUpperCase(); 
+  var dateOfBirth = e.target.dob.value;
+  var pass = e.target.pass.value;
+  var lvl = level.value;
+  var sex = gender.value;
+
+  // REGULAR EXPRESSION VALIDATION ----
+  var nameReg = /^\w+\s\w+$/;
+  var emailReg = /^[\_a-zA-Z]\w+\@\w{4,}\.\w{2,10}$/;
+
+  // ARRAY OF DIFFERENT COMPONENTS IN HTML
+  var loader = document.querySelectorAll('.hidden-sign-up-loader');
+
+
+    // USER AGE VALIDATION TO NOT LESS THAN 17, THEN IS NOT PERMITTED
+    var currentDate = new Date();
+    var userDate = new Date(dateOfBirth);
+    var currentYear = currentDate.getFullYear();
+    var userCurrentYear = userDate.getFullYear();
+    var userAgeNow = currentYear - userCurrentYear;
+
+  // WHILE CREATING A USER JSON OBJECT WHICH WILL AS A DATEBASE DOC
+    const studentSchema = {
+      fullname: fullnam,
+      email: emailAddress,
+      matric_no: matric_no,
+      dob: userAgeNow,
+      level: lvl,
+      gender: sex,
+      password: pass
+    }
+
+   // RESET THE ERRORS MESSAGE IF FORM HAS SUBMIT AGAIN
+    errors[0].textContent = '';
+    errors[1].textContent = '';
+    errors[2].textContent = '';
+    errors[3].textContent = '';
+    errors[4].textContent = '';
+    errors[5].textContent = '';
+    errors[6].textContent = '';
+    errors[7].textContent = '';
+
+
+
+    // IF THE USER PROVIDE CORRECT INFORMATION. THEN, THIS STATEMENT WILL SEND POST REQUEST TO THE SERVER-SIDE AND RETURN A RESPONSE.
+    if((password.value === confirmPassword.value) && (nameReg.test(fullnam)) && (matricReg.test(matric_no)) && (dateOfBirth) && (emailReg.test(emailAddress)) && (sex !== 'Choose gender') && (lvl !== 'Choose Level') && (userAgeNow >= 17) && (password.value.length >= 6)) {
+     
+    // The below statements are only use for testing purpose, it can be change later
+      console.log(studentSchema, userAgeNow)
+      var loader = document.querySelectorAll('.hidden-sign-up-loader');
+      loader.forEach(anim => anim.style.display = "block");
+
+      try {
+        const res = await fetch('/sign-up', {
+          method: 'POST', 
+          headers: {
+          'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(studentSchema) 
+      });
+
+      const result = await res.json();
+      
+      if(result.user) {
+        window.location = '/calculator';
+      }
+
+      if(result.error === 'This email is in use') 
+      {
+        errors[1].textContent = 'This email is in use';
+      }
+
+      if(result.error === 'This matric number is in use') 
+      {
+        errors[4].textContent = 'This matric number is in use'
+      }
+
+      } catch(err) {
+
+      } finally {
+       loader.forEach(anim => anim.style.display = "none");
+      }
+     
+     }
+
+
+    // CHECKING FOR THE SPECIFIC INPUT ERROR THAT CAN OCCUR
+     if((nameReg.test(fullnam) === false)) {
+      errors[0].textContent = 'Please enter full name';
+     }
+     if((emailReg.test(emailAddress) === false)) {
+      errors[1].textContent = 'This email is not valid';
+     }
+     if((sex === 'Choose gender')) {
+      errors[2].textContent = 'Select gender';
+     }
+     if((lvl === 'Choose Level')) {
+      errors[3].textContent = 'Please select level'
+     }
+     if((matricReg.test(matric_no) === false)) {
+      errors[4].textContent = 'This matric is not valid'
+     }
+     if(userAgeNow < 17) {
+      errors[5].textContent = 'Please correct the date'
+     }
+     if(password.value.length < 6) {
+      errors[6].textContent = 'Minimum password length is 6 characters';
+     } 
+     else if((password.value !== confirmPassword.value))
+     {
+      errors[7].textContent = 'Password mismatched';
+     }
+
+  })
+
+  
+  
+  // Event listener for password show and hidden icons
+  password.addEventListener('input', () => {
+    if(password.value)
+    hiddenPassword[0].style.display = 'flex';
+    else 
+    hiddenPassword[0].style.display = 'none';
+  })
+  
+    confirmPassword.addEventListener('input', () => {
+    if(confirmPassword.value)
+    hiddenPassword[1].style.display = 'flex';
+    else 
+    hiddenPassword[1].style.display = 'none';
+  })
+  
+  hiddenPassword[0].addEventListener('click', () => {
+    if(password.type === 'password') {
+    hiddenPassword[0].src = './image/view.png'
+    password.type = 'text';
+    } else {
+    hiddenPassword[0].src = './image/hide.png';
+    password.type = 'password';
+    }
+  }) 
+  
+  hiddenPassword[1].addEventListener('click', () => {
+    if(confirmPassword.type === 'password') {
+    hiddenPassword[1].src = './image/view.png'
+    confirmPassword.type = 'text';
+    } else {
+    hiddenPassword[1].src = './image/hide.png';
+    confirmPassword.type = 'password';
+    }
+  })
+ 
+</script>
+</body>
+</html>
